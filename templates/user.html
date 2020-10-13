@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Log in | Internal Accounts </title>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<style>
+      body {
+        font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+        color: #404040;
+        background: #0ca3d2;
+      }
+      
+      .login {
+        position: relative;
+        margin: 30px auto;
+        padding: 20px 20px 20px;
+        width: 310px;
+        background: white;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      
+      .login:before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        bottom: -8px;
+        left: -8px;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+      }
+      
+      .login h1 {
+        margin: -20px -20px 21px;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #555;
+        text-align: center;
+        text-shadow: 0 1px white;
+        background: #f3f3f3;
+        border-bottom: 1px solid #cfcfcf;
+        border-radius: 3px 3px 0 0;
+        background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+        background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+        background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+        background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+        -webkit-box-shadow: 0 1px whitesmoke;
+        box-shadow: 0 1px whitesmoke;
+      }
+      
+      .login p {
+        margin: 20px 0 0;
+      }
+      
+      .login p:first-child {
+        margin-top: 0;
+      }
+      
+      .login input[type=text], .login input[type=password] {
+        width: 278px;
+      }
+      
+      .login p.remember_me {
+        float: left;
+        line-height: 31px;
+      }
+      
+      .login p.remember_me label {
+        font-size: 12px;
+        color: #777;
+        cursor: pointer;
+      }
+      
+      .login p.remember_me input {
+        position: relative;
+        bottom: 1px;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+      
+      .login p.submit {
+        text-align: right;
+      }
+      
+      .login-help {
+        margin: 20px 0;
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 1px #2a85a1;
+      }
+      
+      .login-help a {
+        color: #cce7fa;
+        text-decoration: none;
+        background-color:red;
+        border-style: groove;
+        border-radius: 10px;
+        font-size: medium;
+      }
+      
+      .login-help a:hover {
+        text-decoration: none;
+      }
+      
+      :-moz-placeholder {
+        color: #c9c9c9 !important;
+        font-size: 13px;
+      }
+      
+      ::-webkit-input-placeholder {
+        color: #ccc;
+        font-size: 13px;
+      }
+      
+      input {
+        font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+        font-size: 14px;
+      }
+      
+      input[type=text], input[type=password] {
+        margin: 5px;
+        padding: 0 10px;
+        width: 200px;
+        height: 34px;
+        color: #404040;
+        background: white;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        border-radius: 2px;
+        outline: 5px solid #eff4f7;
+        -moz-outline-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+      
+      input[type=text]:focus, input[type=password]:focus {
+        border-color: #7dc9e2;
+        outline-color: #dceefc;
+        outline-offset: 0;
+      }
+      
+      input[type=submit] {
+        padding: 0 18px;
+        height: 29px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #527881;
+        text-shadow: 0 1px #e3f1f1;
+        background: #cde5ef;
+        border: 1px solid;
+        border-color: #b4ccce #b3c0c8 #9eb9c2;
+        border-radius: 16px;
+        outline: 0;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        background-image: -webkit-linear-gradient(top, #edf5f8, #cde5ef);
+        background-image: -moz-linear-gradient(top, #edf5f8, #cde5ef);
+        background-image: -o-linear-gradient(top, #edf5f8, #cde5ef);
+        background-image: linear-gradient(to bottom, #edf5f8, #cde5ef);
+        -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+        box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+      }
+      
+      input[type=submit]:active {
+        background: #cde5ef;
+        border-color: #9eb9c2 #b3c0c8 #b4ccce;
+        -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+      }
+      
+      .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
+        line-height: 34px;
+      }
+      
+      
+        
+        /* The popup form - hidden by default */
+
+
+        .card{
+          width: 60%;
+      height:200px;
+      margin: 0 auto;
+      background-color:#FFA500 ;
+        }
+        .form-popup {
+          display: none;
+          position:absolute;
+          top: 100px;
+          left:150px;
+         
+         
+        }
+        .form-popupcost {
+          display: none;
+          position:absolute;
+          top: 150px;
+          left:150px;
+         width:300 px;
+         
+        }
+        .form-editof {
+         
+          position:absolute;
+          top: 100px;
+          left:150px;
+         
+         
+        }
+        .form-editpr {
+          display: none;
+          position:absolute;
+          top: 100px;
+          left:150px;
+         
+         
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+          max-width: 300px;
+          padding: 10px;
+          background-color: white;
+        }
+        
+
+      .form-container  input[type=number] {
+        margin: 5px;
+        
+        padding: 0 10px;
+        width: 200px;
+        height: 34px;
+        color: #404040;
+        background: white;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        border-radius: 2px;
+        outline: 5px solid #eff4f7;
+        -moz-outline-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.form-container  input[type=text] {
+  margin: 5px;
+        padding: 0 10px;
+        width: 200px;
+        height: 34px;
+        color: #404040;
+        background: white;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        border-radius: 2px;
+        outline: 5px solid #eff4f7;
+        -moz-outline-radius: 3px;
+        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+      
+.form-container .btn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          margin-bottom:10px;
+          opacity: 0.8;
+        }
+        
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+          background-color: red;
+        }
+        
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+          opacity: 1;
+        }
+
+
+
+      </style>
+</head>
+<body>
+    
+{% if error == 0 %}
+<script>
+   alert('Data Save Sucessfully')
+</script>
+
+{% endif %}
+{% if detail1 %}
+  <header>
+<h1 style=" color:white; text-align:center; ">Welcome {{ detail1 }}</h1>
+                                    
+                                    <a href="\logout\"><button>Logout </button></a>
+</header>
+{% else %}
+
+<header>
+  <h1 style=" color:white; text-align:center; ">Welcome {{ detail3 }}</h1>
+  
+  </header>
+
+{% endif %}
+<main class="container ">
+
+ {% if detail1 %}
+<button  class="btn btn-default p-5"  onclick="openCOST()"> Product Purchase Cost </button>
+<button  class="btn btn-default p-5"  onclick="openForm()"> Office Expense </button>
+
+
+
+
+<div class="row bg-success">
+            <div class="col-lg-6 ">
+              <h2>Office Expense Table</h2>
+              <table class="table table-bordered bg-primary" id="table1">
+                
+                <tr>
+                    <th>Expense Date</th>
+                    <th>Expense Name</th>
+                    <th>Expense cost</th> 
+                </tr>
+              
+              {% for i in detail2 %}
+              {% if i.name_id_id == detail1.id %}
+              
+                <tr>
+                  {% if detail1.name == 'Shaikh Abu Faisal' %}
+                    <td>{{ i.date}} <a href='/office_expense_edit/{{i.id}}'>Edit</a></td>
+                    {% else %}
+                    <td>{{ i.date}}</td>
+                    {% endif %} 
+                    <td>{{ i.expense }}</td>
+                    <td>{{ i.cost}} TK </td>
+                    
+                </tr>
+              
+                {% endif %}
+              {% endfor %}
+
+              
+              </table>
+              <h4 style="background-color:yellow; text-align: center;" id="val"></h4>
+
+
+
+             </div>
+
+
+
+            <div class="col-lg-6">
+                <h2>Product Purchase Table</h2>
+                <table class="table table-bordered bg-primary" id="table2">
+                 
+                  <tr>
+                    <th>Purchase Date </th>
+                    <th>Products Name</th>
+                    <th>product quantity/volume/Weight</th> 
+                    <th>Purchase Price</th>
+                </tr>
+              
+              {% for i in detail3 %}
+              {% if i.name_id_id == detail1.id %}
+             
+                <tr>
+                  {% if detail1.name  == 'Shaikh Abu Faisal' %}
+                   <td>{{ i.date}} <a  href='/product_purchase_edit/{{i.id}}'>Edit</a> </td>
+                   {% else %}
+                   <td>{{ i.date}}</td>
+                   {% endif %} 
+                    <td>{{ i.products }}</td>
+                    <td>{{ i.measurements }}-{{ i.measurements_type }}</td>
+                    <td>{{ i.cost}} TK </td>
+                    
+                </tr>
+              
+                {% endif %}
+              {% endfor %} 
+  
+              
+              </table>
+              <h4 style="background-color:yellow; text-align: center;" id="val1"></h4>
+             </div>
+</div>
+
+
+
+<div class="form-popup" id="myForm">
+      
+    <form class="form-container" method="post"  action="login/accounts/">
+      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Office Expense</h1>
+     
+      {% csrf_token %}
+      <select name="user_name_id" >
+        <option value = "{{ detail1.id }}"> {{ detail1 }} </option>
+        </select>
+       
+     {{ form1.as_p}}
+      
+    <button type="submit" class="btn"> SUBMIT </button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      
+   </form>
+</div>
+   <div class="form-popupcost" id="myCost">
+      
+    <form class="form-container" method="post"  action="login/accounts/">
+      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Purchase Expense</h1>
+     
+      {% csrf_token %}
+      <select name="user_name_id" >
+        <option value = "{{ detail1.id }}"> {{ detail1 }} </option>
+      </select>
+      {{ form2.as_p}}
+      
+    <button type="submit" class="btn"> SUBMIT </button>
+    <button type="button" class="btn cancel" onclick="closeCOST()">Close</button>
+      
+   </form>
+   </div>
+{% else %}
+   <div class="form-editof" id="myeditof">
+      
+    <form class="form-container" method="post"  action="">
+      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Purchase Expanse</h1>
+     
+    {% csrf_token %}
+    {{ form3.as_p}}
+      
+    <button type="submit" class="btn"> UPDATE </button>
+    <button type="button" class="btn cancel" >Close</button>
+      
+   </form>
+   </div>
+   {% endif %}
+   <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+
+     <script>
+    function openCOST() {
+      document.getElementById("myCost").style.display = "block";
+    }
+    
+    function closeCOST() {
+      document.getElementById("myCost").style.display = "none";
+    }
+    </script>
+  
+
+    
+
+  
+
+
+
+
+
+
+</main>
+<script>
+            
+  var table = document.getElementById("table2"), sumVal = 0;
+  
+  for(var i = 1; i < table.rows.length; i++)
+  {
+      sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
+  }
+  
+  document.getElementById("val1").innerHTML = "Total Produts purchase by you =" + sumVal + " " + "TK";
+  console.log(sumVal);
+  
+</script>
+<script>
+
+            
+  var table = document.getElementById("table1"), sumVal = 0;
+  
+  for(var i = 1; i < table.rows.length; i++)
+  {
+      sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
+  }
+  
+  document.getElementById("val").innerHTML = "Total Office Expense by you = " + sumVal +" " +"TK";
+  console.log(sumVal);
+  
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
