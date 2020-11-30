@@ -37,3 +37,18 @@ class product_cost(models.Model):
 
     def __str__(self):
         return self.products
+
+class sold_data(models.Model):
+   
+    
+    sold_products=models.CharField(max_length=50)
+    how_many=models.FloatField()
+    measurements_type=models.CharField(max_length=6)
+    sold_price=models.FloatField()
+    transaction_id=models.CharField(max_length=50,blank=True)
+    sold_date=models.DateField()
+    
+
+
+    def __str__(self):
+        return self.sold_products
