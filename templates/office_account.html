@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="en-us" >
@@ -302,248 +304,134 @@
 </head>
 <body>
     
-{% if error == 0 %}
-<script>
-   alert('Data Save Sucessfully')
-</script>
 
-{% endif %}
-{% if detail1 %}
-  <header>
-<h1 style=" color:white; text-align:center; ">Welcome {{ detail1 }}</h1>
                                     
-                                    <a href="\logout\"><button>Logout </button></a>
-</header>
-{% else %}
-
-<header>
-  <h1 style=" color:white; text-align:center; ">Welcome {{ detail3 }}</h1>
-  
-  </header>
-
-{% endif %}
-<main class="container ">
-
- {% if detail1 %}
- 
-<button  class="btn btn-default p-5"  onclick="openCOST()"> ADD Product Purchase Cost </button>
-<button  class="btn btn-default p-5"  onclick="openForm()"> ADD Office Expense </button>
-<button  class="btn btn-default p-5"  onclick="openSELL()"> ADD Sell Data </button>
-<a href="{% url 'sold_data' %}"> <button class="btn btn-default p-5">View Sell Data </button> </a>
-
-  
-<a href="{% url 'office_account' %}"> <button class="btn btn-default p-5">View Office Account</button> </a> 
+<a href="\logout\"><button>Logout </button></a>
+<a href="login/accounts/"><button>HOME</button></a>
 
 
 
-<div class="row bg-success">
+
+ <div class="row bg-success">
             <div class="col-lg-6 ">
-              <h2>Office Expense Table</h2>
+              <h2>User Expense   table</h2>
               <table  class="table table-bordered bg-primary" id="table1" >
                 
                 <tr >
-                    <th>Expense Date</th>
-                    <th>Expense Name</th>
-                    <th>Expense cost</th> 
-                </tr>
-              
-              
-              {% for i in detail2 %}
-              {% if i.name_id_id == detail1.id %}
-                 
-                <tr>
-                  {% if detail1.name == 'Shaikh Abu Faisal' %}
-                    <td>{{ i.date}} <a href='/office_expense_edit/{{i.id}}'>Edit</a></td>
-                    {% else %}
-                    <td>{{ i.date}}</td>
-                    {% endif %} 
-                    <td>{{ i.expense }}</td>
-                    <td>{{ i.cost}} TK </td>
+                    <th>User Name</th>
+                    <th>Total Office Expense by user</th>
+                    <th>Total Product Purchase cost by user</th>
+                    
                     
                 </tr>
-             
-                {% endif %}
-              {% endfor %}
+              
+              
             
-              
-              </table>
-              <h4 style="background-color:yellow; text-align: center; position: -webkit-sticky; position:sticky;" id="val"></h4>
-
-
-
-             </div>
-
-
-
-            <div class="col-lg-6">
-                <h2>Expense Table for products purchase</h2>
-                <table class="table table-bordered bg-primary" id="table2">
-                 
-                  <tr>
-                    <th>Purchase Date </th>
-                    <th>Products Name</th>
-                    <th>product quantity/volume/Weight</th> 
-                    <th>Purchase Price</th>
-                </tr>
-              
-              {% for i in detail3 %}
-              {% if i.name_id_id == detail1.id %}
              
+                {% for i in user %} 
                 <tr>
-                  {% if detail1.name  == 'Shaikh Abu Faisal' %}
-                   <td>{{ i.date}} <a  href='/product_purchase_edit/{{i.id}}'>Edit</a> </td>
-                   {% else %}
-                   <td>{{ i.date}}</td>
-                   {% endif %} 
-                    <td>{{ i.products }}</td>
-                    <td>{{ i.measurements }}-{{ i.measurements_type }}</td>
-                    <td>{{ i.cost}} TK </td>
+                   
+                    {% if i.id == 1 %}
                     
-                </tr>
-              
-                {% endif %}
-              {% endfor %} 
-  
-              
+                    <td> {{user_1}}</td>
+                    <td>{{office_expense_1}}--TK</td>
+                    <td>{{product_cost_1}}--TK</td>
+                    
+                    
+                    {% elif i.id == 2 %}
+                    <td> {{user_2}}</td>
+                    <td>{{office_expense_2}}--TK</td>
+                    <td>{{product_cost_2}}--TK</td>
+                    
+                    {% elif i.id == 3 %}
+                    <td> {{user_3}}</td>
+                    <td>{{office_expense_3}}--TK</td>
+                    <td>{{product_cost_3}}--TK</td>
+                    
+                    {% elif i.id == 4 %}
+                    <td> {{user_4}}</td>
+                    <td>{{office_expense_4}}--TK</td>
+                    <td>{{product_cost_4}}--TK</td>
+                    
+                    {% elif i.id == 5 %}
+                    <td> {{user_5}}</td>
+                    <td>{{office_expense_5}}--TK</td>
+                    <td>{{product_cost_5}}--TK</td>
+                    
+                    {% elif i.id == 6 %}
+                    <td> {{user_6}}</td>
+                    <td>{{office_expense_6}}--TK</td>
+                    <td>{{product_cost_6}}--TK</td>
+                    
+                    {% elif i.id == 7 %}
+                    <td> {{user_7}}</td>
+                    <td>{{office_expense_7}}--TK</td>
+                    <td>{{product_cost_7}}--TK</td>
+                    
+                    {% elif i.id == 8 %}
+                    <td> {{user_8}}</td>
+                    <td>{{office_expense_8}}--TK</td>
+                    <td>{{product_cost_8}}--TK</td>
+                    
+                    {% elif i.id == 9 %}
+                    <td> {{user_9}}</td>
+                    <td>{{office_expense_9}}--TK</td>
+                    <td>{{product_cost_9}}--TK</td>
+                    
+                    {% elif i.id == 10 %}
+                    <td> {{user_10}}</td>
+                    <td>{{office_expense_10}}--TK</td>
+                    <td>{{product_cost_10}}--TK</td>
+                    
+                   
+                    {% endif %}
+                   
+                 </tr>
+                 {% endfor %}
               </table>
-              <h4 style="background-color:yellow; text-align: center; position:sticky;" id="val1"></h4>
+              
+              
+
+
+
              </div>
-</div>
 
 
 
-<div class="form-popup" id="myForm">
-      
-    <form class="form-container" method="post"  action="login/accounts/">
-      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Office Expense</h1>
-     
-      {% csrf_token %}
-      <select name="user_name_id" >
-        <option value = "{{ detail1.id }}"> {{ detail1 }} </option>
-        </select>
-       
-     {{ form1.as_p}}
-      
-    <button type="submit" class="btn"> SUBMIT </button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-      
-   </form>
-</div>
-   <div class="form-popupcost" id="myCost">
-      
-    <form class="form-container" method="post"  action="login/accounts/">
-      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Purchase Expense</h1>
-     
-      {% csrf_token %}
-      <select name="user_name_id" >
-        <option value = "{{ detail1.id }}"> {{ detail1 }} </option>
-      </select>
-      {{ form2.as_p}}
-      
-    <button type="submit" class="btn"> SUBMIT </button>
-    <button type="button" class="btn cancel" onclick="closeCOST()">Close</button>
-      
-   </form>
-   </div>
+            
 
 
-   <div class="form-popupsell" id="mysell">
-      
-    <form class="form-container" method="post"  action="login/accounts/">
-      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Sell Data</h1>
-     
-      {% csrf_token %}
-     {{ form3.as_p}}
-      
-    <button type="submit" class="btn"> SUBMIT </button>
-    <button type="button" class="btn cancel" onclick="closeSELL()">Close</button>
-      
-   </form>
-   </div>
-{% else %}
-   <div class="form-editof" id="myeditof">
-      
-    <form class="form-container" method="post"  action="">
-      <h1 style="color: chartreuse; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-style: italic;">Purchase Expanse</h1>
-     
-    {% csrf_token %}
-    {{ form3.as_p}}
-      
-    <button type="submit" class="btn"> UPDATE </button>
-    <button type="button" class="btn cancel" >Close</button>
-      
-   </form>
-   </div>
-   {% endif %}
-   <script>
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
-    }
-    
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
-    </script>
 
-     <script>
-    function openCOST() {
-      document.getElementById("myCost").style.display = "block";
-    }
-    
-    function closeCOST() {
-      document.getElementById("myCost").style.display = "none";
-    }
-    </script>
 
-<script>
-  function openSELL() {
-    document.getElementById("mysell").style.display = "block";
-  }
-  
-  function closeSELL() {
-    document.getElementById("mysell").style.display = "none";
-  }
-  </script>
-  
+    <div class="col-lg-6 ">
+        <br>
+        <h2 style="background-colo:white;border:groove; text-align: center; position: -webkit-sticky; position:sticky;">Current Balance of Hamlet Office = {{office_balane}}  TK </h2>
+        <br>
+        <h3 style="background-color:yellow; text-align: center; position: -webkit-sticky; position:sticky;">Total Sell Amount = {{ Total_sell }} TK </h3>
+        <h3 style="background-color:yellow; text-align: center; position: -webkit-sticky; position:sticky;">Total Expense Amount = {{Total_cost}}  TK </h3>
+        <h3 style="background-color:yellow; text-align: center; position: -webkit-sticky; position:sticky;">Total Expense Amount form Hamlet Office Account = {{Expense_by_Office_Account}}  TK </h3>
+        <h4 style="background-color:rgb(40, 26, 235); text-align: center; position: -webkit-sticky; position:sticky; color: white;">Difference Between Total Sell Amount & 
+          Total Expense Amount = {{dif}}  TK </h4>
+      
+      
+        
+
+
+
+     </div>
+
+    </div>
 
     
-
-  
-
-
 
 
 
 
 </main>
-<script>
-            
-  var table = document.getElementById("table2"), sumVal = 0;
-  
-  for(var i = 1; i < table.rows.length; i++)
-  {
-      sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
-  }
-  
-  document.getElementById("val1").innerHTML = "Total Produts purchase by you =" + sumVal + " " + "TK";
-  console.log(sumVal);
-  
-</script>
-<script>
 
-            
-  var table = document.getElementById("table1"), sumVal = 0;
-  
-  for(var i = 1; i < table.rows.length; i++)
-  {
-      sumVal = sumVal + parseInt(table.rows[i].cells[2].innerHTML);
-  }
-  
-  document.getElementById("val").innerHTML = "Total Office Expense by you = " + sumVal +" " +"TK";
-  console.log(sumVal);
-  
-</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
+   
